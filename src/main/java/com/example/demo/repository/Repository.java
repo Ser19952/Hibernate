@@ -1,22 +1,18 @@
 package com.example.demo.repository;
 
-import com.example.demo.entity.Persons;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import com.example.demo.entity.Person;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @org.springframework.stereotype.Repository
-public class Repository {
-    @PersistenceContext
-    private EntityManager entityManager;
+public interface Repository extends JpaRepository<Person, Long> {
 
-    private static final String query = "\"SELECT Person.personPrimaryKey.name from Person p where p.city_of_living = :city";
+     List<Person> findByCity(String city);
 
-   public List<Persons> getPersonsByCity(String city) {
-       return entityManager.createQuery(query).setParameter("city", city).getResultList();
+     List<Person> findByAgeLessThanOrderByAge(int age);
 
-
-    }
+     Optional<Person> findByNameAndSurname(String name, String surname);
 
 }

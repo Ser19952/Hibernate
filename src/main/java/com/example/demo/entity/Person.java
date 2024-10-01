@@ -11,11 +11,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Persons {
+public class Person {
     @EmbeddedId
     PersonPrimaryKey personPrimaryKey;
     private int phoneNumber;
     private String cityOfLiving;
+    private Long id;
 
 
 }
