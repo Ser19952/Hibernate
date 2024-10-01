@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Builder
 @Embeddable
 public class PersonPrimaryKey  implements Serializable {

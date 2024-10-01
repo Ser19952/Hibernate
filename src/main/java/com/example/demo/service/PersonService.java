@@ -1,16 +1,20 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Person;
-import com.example.demo.repository.Repository;
+import com.example.demo.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
 
 @org.springframework.stereotype.Service
-public class Service {
-@Autowired
-    private Repository repository;
+public class PersonService {
+
+    private final PersonRepository repository;
+
+    public PersonService(PersonRepository repository) {
+        this.repository = repository;
+    }
 
     public Person create(Person persons ) {
       return repository.save(persons);

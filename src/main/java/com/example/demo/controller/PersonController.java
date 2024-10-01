@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Person;
-import com.example.demo.service.Service;
+import com.example.demo.service.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@AllArgsConstructor
+
 @RestController
-public class Controller {
-
-    @Autowired
-    private final Service service;
-
+public class PersonController {
+    private final PersonService service;
+    public PersonController (PersonService service) {
+        this.service = service;
+    }
     @PostMapping("/create")
     public Person createPerson (@RequestBody Person person) {
         return service.create(person);
@@ -54,7 +54,3 @@ public class Controller {
 }
 
 
-
-
-
-}

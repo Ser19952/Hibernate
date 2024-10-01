@@ -1,21 +1,18 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
 public class Person {
     @EmbeddedId
-    PersonPrimaryKey personPrimaryKey;
+    private PersonPrimaryKey personPrimaryKey;
     private int phoneNumber;
     private String cityOfLiving;
+    @Setter
     private Long id;
 
 
